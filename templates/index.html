@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Chatbot</title>
+</head>
+<body>
+    <h1>Welcome to the Translation Chatbot!</h1>
+    <form action="/translate" method="post">
+        <label for="input_type">Input Type:</label>
+        <select name="input_type" id="input_type">
+            <option value="url">URL</option>
+            <option value="pdf">PDF</option>
+            <option value="text">Text</option>
+        </select>
+        <br>
+        <label for="web_url">URL:</label>
+        <input type="text" id="web_url" name="web_url">
+        <br>
+        <label for="pdf_path">PDF Path:</label>
+        <input type="text" id="pdf_path" name="pdf_path">
+        <br>
+        <label for="text">Text:</label>
+        <textarea id="text" name="text"></textarea>
+        <br>
+        <label for="target_language">Target Language:</label>
+        <select name="target_language" id="target_language">
+            <option value="en_XX">English</option>
+            <option value="ta_IN">Tamil</option>
+            <option value="te_IN">Telugu</option>
+            <option value="ml_IN">Malayalam</option>
+            <option value="mr_IN">Marathi</option>
+            <option value="hi_IN">Hindi</option>
+        </select>
+        <br>
+        <button type="submit">Translate</button>
+    </form>
+</body>
+</html>
+

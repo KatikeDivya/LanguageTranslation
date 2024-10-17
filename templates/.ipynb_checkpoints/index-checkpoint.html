@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Chatbot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Translation Chatbot</h1>
+    <textarea id="inputText" rows="4" cols="50" placeholder="Enter text to translate..."></textarea><br>
+    <label for="targetLanguage">Target Language:</label>
+    <select id="targetLanguage">
+        <option value="en_XX">English</option>
+        <option value="ta_IN">Tamil</option>
+        <option value="te_IN">Telugu</option>
+        <option value="ml_IN">Malayalam</option>
+        <option value="mr_IN">Marathi</option>
+        <option value="hi_IN">Hindi</option>
+    </select><br>
+    <button id="translateButton">Translate</button>
+    <h2>Translated Text:</h2>
+    <div id="outputText"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#translateButton').click(function(){
+                const text = $('#inputText').val();
+                const targetLanguage = $('#targetLanguage').val();
+                $.ajax({
+                    url: '/translate',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ text: text, target_language: targetLanguage }),
+                    success: function(response) {
+                        $('#outputText').text(response.translated_text);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
